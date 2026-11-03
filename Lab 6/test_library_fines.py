@@ -8,8 +8,8 @@ def test_returned_on_time():
     assert late_fine("student", 10, False) == 0
 
 def test_faculty_late_fine_under_limit():
-    # Faculty returns within 30 days, no damage
-    assert late_fine("faculty", 35, False) == 5 * 1  # 5 days overdue * 1 = 5
+    # Faculty returns within 30 days, no damage (35 days kept - 30 loan days = 5 days overdue * 1 = 5)
+    assert late_fine("faculty", 35, False) == 5
 
 def test_guest_late_fine_capped():
     # Guest overdue long enough to hit the 200 fine cap
